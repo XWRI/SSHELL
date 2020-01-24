@@ -406,7 +406,7 @@ int main(void)
                         }
                         fprintf(stdout, "\n");
                 } else {
-                        fprintf(stdout, "+ completed '%s' [%d]", input, retval);
+                        fprintf(stdout, "+ completed '%s' [%d]\n", input, retval);
                 }
                 
         }
