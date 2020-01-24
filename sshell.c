@@ -13,7 +13,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <fcntl.h>
-#include <stdbool.h>
 
 #define CMDLINE_MAX 512
 #define ARG_MAX 16
@@ -35,9 +34,9 @@ struct StackNode* newNode(char* str) {
         return stackNode;
 }
 
-bool isEmpty(struct StackNode* root) {
-        if(!root) return true;
-        else return false;
+int isEmpty(struct StackNode* root) {
+        if(!root) return 1;
+        else return 0;
 }
 
 void push(struct StackNode** root, char* str) {
@@ -52,12 +51,12 @@ void push(struct StackNode** root, char* str) {
         }
 }
 
-bool pop(struct StackNode** root) {
-        if (isEmpty(*root)) return false;
+int pop(struct StackNode** root) {
+        if (isEmpty(*root)) return 0;
         struct StackNode* temp = *root;
         *root = (*root)->next;
         free(temp);
-        return true;
+        return 1;
 }
 
 char* peek(struct StackNode* root) {
