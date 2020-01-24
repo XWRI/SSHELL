@@ -173,7 +173,7 @@ int main(void)
                 
                 // Print command line if stdin is not provided by terminal
                 if (!isatty(STDIN_FILENO)) {
-                        printf("%s\n", input);
+                        printf("%s", input);
                         fflush(stdout);
                 }
                 
@@ -181,7 +181,6 @@ int main(void)
                         // Builtin command
                         if (!strcmp(processes[0].cmd[0], "exit")) {
                                 fprintf(stdout, "Bye...\n");
-                                fprintf(stdout, "+ completed '%s' [%d]\n", input, retval);
                                 break;
                         }
                         
@@ -219,10 +218,9 @@ int main(void)
                                         if (chdir(processes[0].cmd[1]) != 0) {
                                                 fprintf(stderr, "Error: no such directory\n");
                                                 retval = 1;
+                                                //fprintf(stderr, "+ completed '%s' [%d]\n", input, retval);
                                         }
                                 }
-                                getcwd(cwd, CMDLINE_MAX);
-                                printf("%s\n", cwd);
                         }
                         
                         else if(!strcmp(processes[0].cmd[0], "dirs")) {
@@ -269,7 +267,7 @@ int main(void)
                                 } else {
                                         execvp(processes[0].cmd[0], processes[0].cmd);
                                         // coming back here is an error
-                                        fprintf(stderr, "\nError: command not found\n");
+                                        fprintf(stderr, "Error: command not found\n");
                                         exit(1);
                                 }
                         }
@@ -304,7 +302,7 @@ int main(void)
                 
                 
                 //piping--------------------------------------------------------
-                /*
+                
                 else {
 
                         
@@ -351,15 +349,11 @@ int main(void)
                                 exit(0);
                         }
                                 
-                         
-                                
                         
-                 
-                        }
-                
                 }
-                 */
+                 
                 
+                /*
                 else {
                         
                         int in = 0;
@@ -400,6 +394,7 @@ int main(void)
                                 
                         
                 }
+                */
                                  
                 if(pNum > 1) {
                         fprintf(stdout, "+ completed '%s' ", input);
