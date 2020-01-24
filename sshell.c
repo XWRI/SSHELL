@@ -181,6 +181,7 @@ int main(void)
                         // Builtin command
                         if (!strcmp(processes[0].cmd[0], "exit")) {
                                 fprintf(stdout, "Bye...\n");
+                                fprintf(stdout, "+ completed '%s' [%d]\n", input, retval);
                                 break;
                         }
                         
@@ -300,7 +301,7 @@ int main(void)
                         }
                 }
                 
-                
+                /*
                 //piping--------------------------------------------------------
                 
                 else {
@@ -352,8 +353,9 @@ int main(void)
                         
                 }
                  
+                */
+
                 
-                /*
                 else {
                         
                         int in = 0;
@@ -393,9 +395,8 @@ int main(void)
                         }
                                 
                         
+        
                 }
-                */
-                                 
                 if(pNum > 1) {
                         fprintf(stdout, "+ completed '%s' ", input);
                         for (int i = 0; i < pNum; i++) {
