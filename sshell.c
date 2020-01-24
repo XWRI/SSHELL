@@ -181,7 +181,7 @@ int main(void)
                 if (pNum == 1) {
                         // Builtin command
                         if (!strcmp(processes[0].cmd[0], "exit")) {
-                                fprintf(stderr, "Bye...\n");
+                                fprintf(stdout, "Bye...\n");
                                 break;
                         }
                         
@@ -401,13 +401,13 @@ int main(void)
                 }
                                  
                 if(pNum > 1) {
-                        fprintf(stderr, "+ completed '%s' ", input);
+                        fprintf(stdout, "+ completed '%s' ", input);
                         for (int i = 0; i < pNum; i++) {
-                                fprintf(stderr, "[%d]", val[i]);
+                                fprintf(stdout, "[%d]", val[i]);
                         }
-                        fprintf(stderr, "\n");
+                        fprintf(stdout, "\n");
                 } else {
-                        fprintf(stderr, "+ completed '%s' [%d]", input, retval);
+                        fprintf(stdout, "+ completed '%s' [%d]", input, retval);
                 }
                 
         }
